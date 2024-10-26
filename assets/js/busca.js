@@ -1,5 +1,3 @@
-import { insertOnSelect } from "./utils.js";
-
 const tipoDeBusca = document.querySelector("#buscar-por");
 const campoDeBusca = document.querySelector("#campo-de-busca");
 

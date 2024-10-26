@@ -27,8 +27,8 @@ if ($result) {
         $map = array(
             "id" => $row['id'],
             "nome" => $row['nome'],
-            "quantidade" => $row['escolaridade'],
-            "preco" => $row['serie'],
+            "quantidade" => intval($row['quantidade']),
+            "preco" => floatval($row['preco']),
         );
 
         array_push($data, $map);

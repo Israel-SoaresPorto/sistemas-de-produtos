@@ -1,5 +1,13 @@
+:root {
+  --primary-100: #1C2CF6;
+  --primary-50: #5D69F8;
+  --primary-20: #9FA6FB;
+  --secondary: #FC7622;
+  --terciary: #A7FC22; 
+}
+
 body {
-  background: linear-gradient(90deg ,#174bda, #0599ee, #05eee2);
+  background: linear-gradient(90deg , var(--primary-100), var(--primary-50), var(--primary-20));
 }
 
 #login-form, #new-user-form {
@@ -24,7 +32,7 @@ body {
 
 .data {
   width: 100%;
-  max-width: 40em;
+  max-width: 50em;
 }
 
 @media screen and (min-width: 768px) {

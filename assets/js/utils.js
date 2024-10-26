@@ -17,30 +17,19 @@ export function showAlert(message, type) {
 }
 
 export function renderTable(data) {
-  const table = document.createElement("table");
-  table.className =
-    "table table-hover table-striped table-bordered";
-  table.innerHTML =
-    "<thead class='table-success'><tr><th>ID</th><th>Nome</th><th>Escolaridade</th><th>Série</th></tr></thead><tbody></tbody>";
+  const table = document.querySelector("table");
 
   data.forEach((d) => {
     let tr = document.createElement("tr");
 
-    let escolaridade =
-      d.escolaridade === "medio"
-        ? d.escolaridade.replace("me", "Mé")
-        : d.escolaridade.replace(
-            d.escolaridade[0],
-            d.escolaridade[0].toUpperCase()
-          );
-
     tr.innerHTML = `<td>${d.id}</td>
                     <td>${d.nome}</td>
-                    <td>Ensino ${escolaridade}</td>
-                    <td>${d.serie}° Ano`;
+                    <td>${d.quantidade}</td>
+                    <td>${d.preco.toLocaleString("pt-br", {
+                      style: 'currency',
+                      currency: 'BRL',
+                    })}</td>`;
 
     table.querySelector("tbody").appendChild(tr);
   });
-
-  return table;
 }

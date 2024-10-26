@@ -3,10 +3,10 @@
 include '../config/config.php';
 
 $nome = $_POST['nome'];
-$escolaridade = $_POST['escolaridade'];
-$serie = intval($_POST['serie']);
+$quantidade = intval($_POST['quantidade']);
+$preco = floatval($_POST['preco']);
 
-$sql = "INSERT INTO estudantes(nome, escolaridade, serie) VALUES ('$nome', '$escolaridade', $serie)";
+$sql = "INSERT INTO produtos(nome, quantidade, preco) VALUES ('$nome', '$quantidade', $preco)";
 
 $response = array();
 

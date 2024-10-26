@@ -3,12 +3,13 @@ import { showAlert, renderTable } from "./utils.js";
 const registerForm = document.querySelector("#register-form");
 const searchForm = document.querySelector("#search-form");
 const modal = new bootstrap.Modal("#modal-register");
-const dataDiv = document.querySelector(".data");
+const table = document.querySelector("table");
 
 async function showDataOnLoad() {
   let response = await fetch("../app/listagem.php");
   let data = await response.json();
-  dataDiv.appendChild(renderTable(data));
+  renderTable(data);
+  console.log(data);
 }
 
 window.addEventListener("load", showDataOnLoad);
@@ -26,7 +27,7 @@ registerForm.addEventListener("submit", (event) => {
     .then((data) => {
       if (data.status === "ok") {
         registerForm.reset();
-        dataDiv.innerHTML = "";
+        table.querySelector("tbody").innerHTML = "";
         showDataOnLoad();
         modal.hide();
         showAlert(data.message, "success");
@@ -50,10 +51,11 @@ searchForm.addEventListener("submit", (event) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      dataDiv.innerHTML = "";
+      table.querySelector("tbody").innerHTML = ""
 
       if (data.length > 0) {
-        dataDiv.appendChild(renderTable(data));
+        renderTable(data);
+        console.log(data);
       } else {
         showAlert("Nenhum registro encontrado", "warning");
       }
