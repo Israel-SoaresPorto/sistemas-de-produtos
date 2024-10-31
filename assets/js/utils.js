@@ -10,10 +10,18 @@ export function insertOnSelect(select, quantidade) {
 export function showAlert(message, type) {
   const alertPlace = document.querySelector("#alert-message");
 
-  alertPlace.innerHTML = `<div class="alert alert-${type} alert-dismissible" role="alert">
+  alertPlace.innerHTML = `<div class="w-100 alert alert-${type} alert-dismissible" role="alert">
       <div>${message}</div>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>`;
+
+  const alertTimeout = setTimeout(() => {
+    alertPlace.innerHTML = "";
+  }, 3000);
+  
+  alertPlace.querySelector("button").addEventListener("click", () => {
+    clearTimeout(alertTimeout);
+  })
 }
 
 export function renderTable(data) {

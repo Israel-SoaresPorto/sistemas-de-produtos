@@ -1,25 +1,27 @@
 :root {
-  --primary-100: #1C2CF6;
-  --primary-50: #5D69F8;
-  --primary-20: #9FA6FB;
-  --secondary: #FC7622;
-  --terciary: #A7FC22; 
+  --bg-gradient-left: linear-gradient(to left, #1c2cf6, #5d69f8, #9fa6fb);
+  --bg-gradient-right: linear-gradient(to right, #1c2cf6, #5d69f8, #9fa6fb);
 }
 
 body {
-  background: linear-gradient(90deg , var(--primary-100), var(--primary-50), var(--primary-20));
+  background: var(--bg-gradient-right);
 }
 
-#login-form, #new-user-form {
+.glassmorphism {
+  background-color: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(12px) saturate(180%);
+}
+
+#login-form,
+#new-user-form,
+#recovery-form {
   max-width: 25em;
-  background-color: #0599ee;
-}
-
-#login-form button, #new-user-form button {
-  background-color: #174bda;
 }
 
 #alert-message {
+  width: 27.5em;
+  max-width: 30em;
+  padding: 1em;
   top: 5%;
   left: 50%;
   transform: translate(-50%, 50%);
